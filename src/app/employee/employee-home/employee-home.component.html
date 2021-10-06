@@ -1,0 +1,34 @@
+
+<div class="topnav" id="myTopnav">
+    <a routerLink='/employeehome' routerLinkActive='active' class="active left" >Employee Management system</a>
+    <span class="right">
+      <a routerLink='/employee' routerLinkActive='active' *ngIf='auth.loggedIn()'>Home</a>
+     
+      <a *ngIf='auth.loggedIn()' (click)='auth.logoutUser()'>Logout</a>
+    </span>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Email id</th>
+            <th scope="col">Role</th>
+            <th scope="col">Creted at</th>
+          </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let data of data'>
+            <td>{{data.first_name}}</td>
+            <td>{{data.last_name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.role}}</td>
+            <td>{{data.createdAt
+            |date:'short'}}</td>
+            
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,182 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand ems" routerLink='/employee' routerLinkActive='active'>Employee managemant system</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="right">
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+          <li class="nav-item">
+            <a class="nav-link active ems" routerLinkActive='active' [routerLinkActiveOptions]='{exact:true}'
+              aria-current="page" *ngIf='auth.loggedIn()' (click)='auth.logoutUser()'>Logout</a>
+          </li>
+        </ul>
+        <span>
+        </span>
+      </div>
+    </span>
+  </div>
+</nav>
+
+<h3 style="margin-left: 40px;">Your detail : &nbsp;</h3>
+<div class="container">
+  <div class="detail">
+    <img src="{{url}}" style="margin-right: 20px;" width="100px" height="100px" alt="">
+    <table class="table mt-2">
+      <thead>
+        <tr>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">Email id</th>
+          <th scope="col">Role</th>
+          <th scope="col">Created at</th>
+          <th scope="col">Updated at</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{user.first_name}}</td>
+          <td>{{user.last_name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.role}}</td>
+          <td>{{user.createdAt
+            |date:'short'}}</td>
+          <td>{{user.updatedAt
+            |date:'short'}}</td>
+          <td><button class="btn btn-success hello" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              style="width: 70px;" (click)='onEdit(user)'>Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="data">
+    <div class="tabelData">
+      <h4 class="mt-4">Other general employees : &nbsp;</h4>
+      <form action="" [formGroup]='inputForm' class="form">
+        <span class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search employee" style="width: 200px;"
+            formControlName='search' (keyup)='inp()' aria-label="Search">
+
+          <button class="btn btn-dark" (click)='searchbox()'>Search</button>
+        </span>
+      </form>
+      <div class='tabelData' *ngIf='!showErrorMsg && inputForm.get("search")?.value!="" && searchResult.length>0'>
+        <table class="table mt-2">
+          <thead>
+            <tr>
+              <th scope="col">First name</th>
+              <th scope="col">Last name</th>
+              <th scope="col">Email id</th>
+              <th scope="col">Created at</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let data of searchResult'>
+              <td>{{data.first_name}}</td>
+              <td>{{data.last_name}}</td>
+              <td>{{data.email}}</td>
+              <td>{{data.createdAt|date}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class='tabelData' *ngIf='inputForm.get("search")?.value=="" || !searchResultType || searchResult.length===0'>
+        <table class="table mt-2">
+          <thead>
+            <tr>
+              <th scope="col">First name</th>
+              <th scope="col">Last name</th>
+              <th scope="col">Email id</th>
+              <th scope="col">Created at</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let data of data | paginate: { itemsPerPage: 4, currentPage: p }'>
+              <td>{{data.first_name}}</td>
+              <td>{{data.last_name}}</td>
+              <td>{{data.email}}</td>
+              <td>{{data.createdAt|date}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+      </div>
+    </div>
+    <div class="holiday">
+      <div class="container d-flex align-items-center justify-content-center text-center m-lg-4">
+        <div class="card scroll" style="width: 18rem;">
+          <div class="card-header" style="font-weight:bold;">
+            <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/calendar-512.png" width="50px"
+              height="50px" alt=""> Holiday Details
+          </div>
+          <ul class="list-group list-group-flush" *ngFor='let holiday of holidays'>
+            <li class="list-group-item">
+              <div style="height: 50px;">
+                <h6>{{holiday.name}}</h6>
+                <p>{{holiday.date}}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Employee detail</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]='formValue'>
+            <img style="display: flex;align-items: center;justify-content: center;margin-left: 130px;" [src]="formValue.get('image')?.value" alt="" height="200px" width="200px">
+            <div class="form-group mb-3 mt-3">
+              <label for="" class="mb-2"> Update image</label>
+              <input type="file" class="form-control" (change)='onFIleSelected($event)' aria-describedby="helpId"
+                placeholder="">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">First name</label>
+              <input type="text" class="form-control" formControlName='first_name'>
+              <span *ngIf='formValue.get("first_name")?.invalid && formValue.get("first_name")?.touched'>Enter a valid
+                name</span>
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Last name</label>
+              <input type="text" class="form-control" formControlName='last_name'>
+              <span *ngIf='formValue.get("last_name")?.invalid && formValue.get("last_name")?.touched'>Enter a valid
+                name</span>
+
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Email Id</label>
+              <input type="email" class="form-control" formControlName='email'>
+              <span *ngIf='formValue.get("email")?.invalid && formValue.get("email")?.touched'>Enter a valid
+                email</span>
+            </div>
+
+
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id='cancel'>Close</button>
+          <button type="button" class="btn btn-primary" (click)='onUpdate()'>Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

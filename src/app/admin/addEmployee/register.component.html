@@ -1,0 +1,65 @@
+<body class="text-center row justify-content-center">
+    <div class="col-md-4 mt-5 ">
+        <main class="form-signin">
+            <form [formGroup]='user'>
+                <h1 class="h3 mb-3 fw-normal">Add new employee</h1>
+                <div class="form-floating">
+                    <input type="text" formControlName='first_name' class="form-control mb-2" id="floatingInput"
+                        placeholder="name@example.com" autocomplete="off">
+                    <label for="floatingInput">First name</label>
+                    <span *ngIf='user.get("first_name")?.invalid && user.get("first_name")?.touched'>Enter first
+                        name</span>
+                </div>
+                <div class="form-floating">
+                    <input type="text" formControlName='last_name' class="form-control mb-2" id="floatingInput"
+                        placeholder="name@example.com" autocomplete="off">
+                    <label for="floatingInput">Last name</label>
+                    <span *ngIf='user.get("last_name")?.invalid && user.get("last_name")?.touched'>Enter last
+                        name</span>
+                </div>
+                <div class="form-floating">
+                    <input type="email" formControlName='email' class="form-control mb-2" id="floatingInput"
+                        placeholder="name@example.com" autocomplete="off">
+                    <label for="floatingInput">Email address</label>
+                    <span *ngIf='user.get("email")?.invalid && user.get("email")?.touched'>Enter email
+                        id</span>
+                </div>
+
+
+
+
+                <div class="form-floating">
+                    <input type="password" formControlName='password' class="form-control mb-2" id="floatingPassword"
+                        placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                    <span *ngIf='user.get("password")?.invalid && user.get("password")?.touched'>Enter
+                        password</span>
+                </div>
+                <span style="display: flex;">
+                    <label for='role' class='mb-2' style="font-size: 20px;color: black;">Select account type :&nbsp;
+                    </label>
+                    <!-- <select name="role" class="dropbtn" formControlName='role' id="cars">
+                <option value="admin">Admin</option>
+                <option value="general">Employee</option>
+            </select> -->
+
+                    <select class="form-select" style="width: 200px;" formControlName='role'
+                        aria-label="Default select example">
+                        <option value="admin">Admin</option>
+                        <option value="general">General</option>
+                    </select>
+
+                </span>
+                <div class="form-group">
+                  <label for=""></label>
+                  <input type="file" (change)='onFIleSelected($event)'
+                    class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  
+                </div>
+                <button class="w-100 btn btn-lg btn-primary mt-2" (click)="signup()" type="submit">Add employee</button>
+
+                <p class="mt-5 mb-3 text-muted">© 2021–2022</p>
+            </form>
+        </main>
+    </div>
+</body>

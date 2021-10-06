@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+  .right{
+    float: right;
+    margin-right: 64px;
+  }
+  .left{
+    float: left;
+    margin-left: 10px;
+  }
+.ems:hover{
+  color: orange;
+  cursor: pointer;
+}
+.main{
+  display: flex;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+.scroll {
+  float: left;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 4px 4px 0px 0px black;
+}
+.tabelData{
+width: 500px;
+border-right: 2px solid black;
+}
+.cards{
+  display: flex;
+  margin-left:20px ;
+}
+.borders{
+  border-bottom: 2px solid darkgrey;
+  width: 94vw;
+  margin-left: 40px;
+  /* margin-right: 40vw; */
+}

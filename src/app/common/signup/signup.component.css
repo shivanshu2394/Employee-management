@@ -1,0 +1,26 @@
+/* span{
+    color: red;
+} */
+.hello{
+    margin-right: 20px;
+}
+.val{
+    color: red;
+}
+input.ng-invalid.ng-touched{
+    border-color: red;
+}
+.signup{
+    display: flex;
+    margin: 20px;
+}
+.sign{
+    margin-left: 50px;
+    margin-right: 16px;
+}
+.car{
+    width: 63%;
+}
+.bod{
+    width: 90vw;
+}

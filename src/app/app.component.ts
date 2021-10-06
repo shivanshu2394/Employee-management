@@ -1,3 +1,5 @@
+import { LoginComponent } from './security/login/login.component';
+import { ApiService } from './security/api.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front';
+  constructor(private api:ApiService){}
+  auth:any=this.api
+  
+  
 }

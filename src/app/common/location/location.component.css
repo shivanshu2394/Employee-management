@@ -1,0 +1,10 @@
+agm-map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    width: 60vw;
+    margin-left: 170px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }

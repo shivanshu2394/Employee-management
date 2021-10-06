@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h2>Admin users : </h2>
+  <table class="table mt-2">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email Id</th>
+        <th scope="col">Role</th>
+        <th scope="col">Created Date</th>
+        <th scope="col">Updated Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let adminData of adminData'>
+        <td>{{adminData.first_name}}</td>
+        <td>{{adminData.last_name}}</td>
+        <td>{{adminData.email}}</td>
+        <td>{{adminData.role}}</td>
+        <td>{{adminData.createdAt
+          |date:'short'}}</td>
+        <td>{{adminData.updatedAt
+          |date:'short'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>General users : </h3>
+  <table class="table mt-2">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email Id</th>
+        <th scope="col">Role</th>
+        <th scope="col">Created Date</th>
+        <th scope="col">Updated Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let data of data '>
+        <td>{{data.first_name}}</td>
+        <td>{{data.last_name}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.role}}</td>
+        <td>{{data.createdAt
+          |date:'short'}}</td>
+        <td>{{data.updatedAt
+          |date:'short'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

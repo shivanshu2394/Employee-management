@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+
+<div class="col columndata">
+  <span><img width="510px" height="510px" src="{{adminView.image}}" alt=""></span>
+  <span class="column2">
+    <div>
+      <h4><b>First Name</b></h4>
+      <p>{{adminView.first_name}}</p>
+    </div>
+    <div>
+      <h4><b>Last Name</b></h4>
+      <p>{{adminView.last_name}}</p>
+    </div>
+    <div>
+      <h4><b>Email Address</b></h4>
+      <p>{{adminView.email}}</p>
+    </div>
+    <div>
+      <h4><b>Created Date</b></h4>
+      <p>{{adminView.createdAt|date}}</p>
+    </div>
+  </span>
+</div>

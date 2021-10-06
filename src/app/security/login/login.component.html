@@ -1,0 +1,42 @@
+<div class="main">
+	<form [formGroup]='user'>
+		<div class="login-wrap mt-3 col-10 float-left">
+			<div class="login-html">
+				<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
+					class="tab">Employee portal Sign
+					In</label>
+				<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+				<div class="login-form">
+					<div class="sign-in-htm">
+						<div class="group">
+							<label for="user" class="label">Email Id</label>
+							<input id="user" type="text" formControlName='email' class="input" autocomplete="off">
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Password</label>
+							<input id="pass" type="password" class="input" formControlName='password'
+								data-type="password">
+						</div>
+
+						<div class="group">
+							<input type="submit" class="button" (click)='submit()' [disabled]='!user.valid'
+								value="Sign In">
+						</div>
+						<br>
+						<div class="container align-items-center text-center">
+							<span style="color:darkgrey;">Forget password ? &nbsp;</span>
+							<span><a class="forgerPass" (click)='forgetPassword()'>Click
+									here</a></span>
+						</div>
+						<!-- <div class="hr"></div> -->
+						<br>
+						<span style="display: flex; align-items: center; margin-left: 42px;">
+							<h6 style="color: darkgrey;">New user : &nbsp;</h6>
+							<button class="btn btn-primary" (click)='redirect()'>Create your account</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

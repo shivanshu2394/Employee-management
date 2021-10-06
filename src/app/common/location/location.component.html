@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h2 class="mt-3">Google Maps</h2>
+    <agm-map [latitude]="lat" [longitude]="lng" (mapClick)='onChooseLocation($event)'>
+        <agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>
+        <agm-marker [latitude]="lat" [longitude]="lng" *ngIf="LocationCHoosen">
+        </agm-marker> 
+    </agm-map> 
+    <span><h2 style="color: darkturquoise;"><i>Digital clock : &nbsp; {{date}}</i></h2></span> 
+</div>

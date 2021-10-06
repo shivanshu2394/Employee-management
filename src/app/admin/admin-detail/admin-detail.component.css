@@ -1,0 +1,27 @@
+.right{
+    float: right;
+    margin-right: 64px;
+  
+  }
+  .left{
+    float: left;
+    margin-left: 10px;
+  }
+.ems:hover{
+  color: orange;
+  cursor: pointer;
+}
+.columndata{
+    margin-top: 10px;
+    margin-bottom: 10px;
+     margin-left: 10px;
+     margin-right: 10px;
+     display: flex;
+}
+.column2{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 107px;
+    margin-left: 301px;
+}

@@ -1,0 +1,58 @@
+<body class="align-items-center text-center bod">
+    <span class="mt-5 col signup">
+        <span class="col-6 car">
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide><img src="../../../assets/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg" alt="">
+                </ng-template>
+                <ng-template carouselSlide><img src="../../../assets/field-6574455__480.jpg" alt=""></ng-template>
+                <ng-template carouselSlide><img src="../../../assets/xps-Qrjx2nTBHVo-unsplash.jpg" alt=""></ng-template>
+            </owl-carousel-o>
+        </span>
+        <main class="form-signin col-4 sign " style="width: 500px;">
+            <form [formGroup]='user'>
+                <h1 class="h3 mb-3 fw-normal">Signup to Employee Management</h1>
+                <div class="form-floating">
+                    <input type="text" formControlName='first_name' class="form-control mb-2" id="floatingInput"
+                        placeholder="name@example.com" autocomplete="off">
+                    <label for="floatingInput">First name</label>
+                    <span class="val" *ngIf='user.get("first_name")?.invalid && user.get("first_name")?.touched'>Enter
+                        first
+                        name</span>
+                </div>
+                <div class="form-floating">
+                    <input type="text" formControlName='last_name' class="form-control mb-2" id="floatingInput"
+                        placeholder="name@example.com" autocomplete="off">
+                    <label for="floatingInput">Last name</label>
+                    <span class="val" *ngIf='user.get("last_name")?.invalid && user.get("last_name")?.touched'>Enter
+                        last
+                        name</span>
+                </div>
+                <div class="form-floating">
+                    <input type="email" formControlName='email' class="form-control mb-2" id="floatingInput"
+                        placeholder="name@example.com" autocomplete="off">
+                    <label for="floatingInput">Email address</label>
+                    <span class="val" *ngIf='user.get("email")?.invalid && user.get("email")?.touched'>Enter email
+                        id</span>
+                </div>
+                <div class="form-floating">
+                    <input type="password" formControlName='password' class="form-control mb-2" id="floatingPassword"
+                        placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                    <span class="val" *ngIf='user.get("password")?.invalid && user.get("password")?.touched'>Enter
+                        password</span>
+                </div>
+                <div class="form-group">
+                    <label for="">Profile photo</label>
+                    <input type="file" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""
+                        (change)='onFIleSelected($event)'>
+
+                </div>
+
+                <button class="w-100 btn btn-lg btn-primary mt-2" (click)="signup()" type="submit">Signup</button>
+
+                <p class="mt-5 mb-3 text-muted">© 2021–2022</p>
+            </form>
+        </main>
+
+    </span>
+</body>
