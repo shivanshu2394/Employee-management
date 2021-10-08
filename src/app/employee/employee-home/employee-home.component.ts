@@ -1,4 +1,4 @@
-import { ApiService } from '../../security/api.service';
+import { ApiService } from '../../security/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

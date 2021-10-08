@@ -1,4 +1,4 @@
-import { ApiService } from './api.service';
+import { ApiService } from './auth.service';
 
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';

@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { ApiService } from './../api.service';
+import { ApiService } from '../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 

@@ -1,5 +1,5 @@
 import { DataService } from './../../security/dataModel.service';
-import { ApiService } from '../../security/api.service';
+import { ApiService } from '../../security/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,24 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
-  constructor(private adminService:ApiService,private dataService:DataService) { }
-data:any
-auth=this.adminService
-adminData:any
-adminUserDetail:any;
-adminViewData:any
+  constructor(private adminService: ApiService, private dataService: DataService) { }
+  allGeneralUser: any
+  auth = this.adminService
+  adminData: any
+  adminViewData: any
   ngOnInit(): void {
-      this.adminService.getAdminData().subscribe((res:any)=>{
-        this.adminData=res 
-      })
-      this.adminService.getGeneralData().subscribe((res)=>{
-        this.data=res;
-      })
-      this.adminUserDetail=this.dataService.setData()
-      this.dataService.getData(this.adminUserDetail)
-      // console.log(this.adminUserDetail.first_name);
-      
+    this.adminService.getAdminData().subscribe((res: any) => {
+      this.adminData = res
+    })
+    this.adminService.getGeneralData().subscribe((res) => {
+      this.allGeneralUser = res;
+    })
   }
-p:any;
-q:any
+  p: any;
+  q: any
 }

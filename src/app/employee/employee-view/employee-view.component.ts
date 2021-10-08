@@ -3,7 +3,7 @@ import { DataService } from '../../security/dataModel.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, Validators } from '@angular/forms';
 import { User } from './User';
-import { ApiService } from '../../security/api.service';
+import { ApiService } from '../../security/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -60,6 +60,8 @@ export class EmployeeViewComponent implements OnInit {
 
     })
     this.toaster.success('User updated successfully')
+    let ref=document.getElementById('cancel')
+    ref?.click()
   }
   p: any;
   searchResult: any = []

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NewEmployeeData } from '../../security/newEmployeeData.service';
 import { DataService } from '../../security/dataModel.service';
 import { ToastrService } from 'ngx-toastr';
-import { ApiService } from '../../security/api.service';
+import { ApiService } from '../../security/auth.service';
 import { User } from '../../security/User';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';

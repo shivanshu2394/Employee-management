@@ -1,5 +1,5 @@
 import { LoginComponent } from './security/login/login.component';
-import { ApiService } from './security/api.service';
+import { ApiService } from './security/auth.service';
 import { Component } from '@angular/core';
 
 @Component({

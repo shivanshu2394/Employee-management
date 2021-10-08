@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../../security/dataModel.service';
-import { ApiService } from '../../security/api.service';
+import { ApiService } from '../../security/auth.service';
 
 @Component({
   selector: 'app-navbar',

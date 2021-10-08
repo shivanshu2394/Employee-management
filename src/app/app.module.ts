@@ -32,6 +32,7 @@ import { AdminDetailComponent } from './admin/admin-detail/admin-detail.componen
 import { HolidayDetailsComponent } from './common/holiday-details/holiday-details.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
 import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { AddEmployeeComponent } from './admin/add-employee/add-employee.componen
       provide: HTTP_INTERCEPTORS,
       useClass: TokenIntersepterService,
       multi: true
-    }
+    },
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

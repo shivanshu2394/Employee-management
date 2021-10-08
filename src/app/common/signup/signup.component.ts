@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { ApiService } from './../../security/api.service';
+import { ApiService } from '../../security/auth.service';
 import { User } from './../../security/User';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -42,7 +42,6 @@ export class SignupComponent implements OnInit {
   signup() {
     if (this.user.get("first_name")?.invalid) {
       this.firstName = true
-      // this.span?.nativeElement.style.color='red'
     }
     if (this.user.get("last_name")?.invalid) {
       this.lastName = true
