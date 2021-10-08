@@ -1,11 +1,10 @@
-/* span{
-    color: red;
-} */
+
 .hello{
     margin-right: 20px;
 }
 .val{
     color: red;
+    margin-right: 381px;
 }
 input.ng-invalid.ng-touched{
     border-color: red;

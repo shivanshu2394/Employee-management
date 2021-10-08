@@ -10,7 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './common/footer/footer.component';
-import { RegisterComponent } from './admin/addEmployee/register.component';
+
 import { LoginComponent } from './security/login/login.component';
 import { HomeComponent } from './common/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -31,13 +31,12 @@ import { AgmCoreModule } from '@agm/core';
 import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
 import { HolidayDetailsComponent } from './common/holiday-details/holiday-details.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
-
+import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    RegisterComponent,
     LoginComponent,
     HomeComponent,
     AdminViewComponent,
@@ -50,7 +49,8 @@ import { NavbarComponent } from './admin/navbar/navbar.component';
     LocationComponent,
     AdminDetailComponent,
     HolidayDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,

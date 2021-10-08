@@ -1,18 +1,18 @@
-import { NewEmployeeData } from './../../security/newEmployeeData.service';
-import { DataService } from './../../security/dataModel.service';
+import { Component, OnInit } from '@angular/core';
+import { NewEmployeeData } from '../../security/newEmployeeData.service';
+import { DataService } from '../../security/dataModel.service';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from '../../security/api.service';
 import { User } from '../../security/User';
-import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-add-employee',
+  templateUrl: './add-employee.component.html',
+  styleUrls: ['./add-employee.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class AddEmployeeComponent implements OnInit {
 
   url=''
   registerUser=new User()
