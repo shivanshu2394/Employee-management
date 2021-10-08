@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.adminUserDetail=this.dataService.setData()
-    this.dataService.getData(this.adminUserDetail)
+    this.dataService.getData(this.adminUserDetail);
   }
 
 }
