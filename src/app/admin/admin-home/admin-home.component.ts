@@ -12,11 +12,11 @@ export class AdminHomeComponent implements OnInit {
   constructor(private adminService: ApiService, private dataService: DataService) { }
   allGeneralUser: any
   auth = this.adminService
-  adminData: any
+  allAdminUser: any
   adminViewData: any
   ngOnInit(): void {
     this.adminService.getAdminData().subscribe((res: any) => {
-      this.adminData = res
+      this.allAdminUser = res
     })
     this.adminService.getGeneralData().subscribe((res) => {
       this.allGeneralUser = res;

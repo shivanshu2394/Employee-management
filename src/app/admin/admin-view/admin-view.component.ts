@@ -13,7 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./admin-view.component.css']
 })
 export class AdminViewComponent implements OnInit {
-  constructor(private adminService: ApiService, private router: Router, private toaster: ToastrService, private dataService: DataService, private newEmployeeDetail: NewEmployeeData, private cookie: CookieService) { }
+  constructor(private adminService: ApiService, private router: Router, private toaster: ToastrService, private dataService: DataService, private newEmployeeDetail: NewEmployeeData) { }
   auth: any = this.adminService
   allEmpData: any
   navbarData: any

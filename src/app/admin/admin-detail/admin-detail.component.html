@@ -1,23 +1,23 @@
 <app-navbar></app-navbar>
 
 <div class="col columndata">
-  <span><img width="510px" height="510px" src="{{adminData.image}}" alt=""></span>
+  <span><img width="510px" height="510px" src="{{url}}" alt=""></span>
   <span class="column2">
     <div>
       <h4><b>First Name</b></h4>
-      <p>{{adminData.first_name}}</p>
+      <p>{{firstName}}</p>
     </div>
     <div>
       <h4><b>Last Name</b></h4>
-      <p>{{adminData.last_name}}</p>
+      <p>{{lastName}}</p>
     </div>
     <div>
       <h4><b>Email Address</b></h4>
-      <p>{{adminData.email}}</p>
+      <p>{{email}}</p>
     </div>
     <div>
       <h4><b>Created Date</b></h4>
-      <p>{{adminData.createdAt|date}}</p>
+      <p>{{createdDate|date}}</p>
     </div>
   </span>
 </div>

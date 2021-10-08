@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NewEmployeeData } from '../../security/newEmployeeData.service';
-import { DataService } from '../../security/dataModel.service';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from '../../security/auth.service';
 import { User } from '../../security/User';
@@ -34,7 +33,6 @@ export class AddEmployeeComponent implements OnInit {
     }
   }
   signup(){
-    // console.log(this.user.value);
     this.user.get('image').setValue(this.url)
     this.adminService.signupUser(this.user.value).subscribe((res:any)=>{
       this.newEmployeeService.getData(res)
@@ -42,7 +40,6 @@ export class AddEmployeeComponent implements OnInit {
       this.router.navigate(['/home']) 
     },
     (err:any)=>{
-      // console.log(err.error.msg);
       this.toaster.error(err.error.msg)
     })
   }
