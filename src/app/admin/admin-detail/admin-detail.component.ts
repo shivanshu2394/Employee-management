@@ -12,12 +12,9 @@ export class AdminDetailComponent implements OnInit {
 
   constructor(private dataService:DataService,private adminService:ApiService) { }
 auth=this.adminService
-adminHome:any;
-adminView:any
+adminData:any
   ngOnInit(): void {
-    this.adminHome=this.dataService.setData()
-    this.adminView=this.dataService.setData()
-    console.log(this.adminView);
+    this.adminData=this.dataService.setData()
+    console.log(this.adminData);
   }
-
 }
