@@ -10,7 +10,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class NavbarComponent implements OnInit {
   adminUserDetail:any
-  navbarName=this.cookieService.
+  navbarName=this.cookieService.get('first_name')
+  navbarImage=this.cookieService.get('image')
   constructor(private adminService:ApiService,private dataService:DataService,private cookieService:CookieService) { 
   }
   auth=this.adminService

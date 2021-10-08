@@ -17,7 +17,7 @@ firstName=this.cookieService.get('first_name')
 lastName=this.cookieService.get('last_name')
 email=this.cookieService.get('email')
 url=this.cookieService.get('image')
-createdDate=this.cookieService.get('createdAT')
+createdDate=this.cookieService.get('createdAt')
 adminData:any
   ngOnInit(): void {
     this.adminData=this.dataService.setData()
