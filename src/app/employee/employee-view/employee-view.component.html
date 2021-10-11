@@ -9,10 +9,25 @@
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle nav-link active ems" href="#" id="navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  {{navbarName}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+                  <li><a class="dropdown-item ems" routerLink="/location">Location</a></li>
+                  <li><a class="dropdown-item ems" routerLinkActive='active' [routerLinkActiveOptions]='{exact:true}'
+                      *ngIf='auth.loggedIn()' (click)='auth.logoutUser()'>Logout</a></li>
+                  <li><img class="dropdown-item ems" routerLink='/employee' src="{{navbarImage}}" width="90px"
+                      height="80px" alt=""></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
           <li class="nav-item">
-            <a class="nav-link active ems" routerLinkActive='active' [routerLinkActiveOptions]='{exact:true}'
-              aria-current="page" *ngIf='auth.loggedIn()' (click)='auth.logoutUser()'>Logout</a>
           </li>
         </ul>
         <span>
@@ -33,8 +48,8 @@
           <th scope="col">Last name</th>
           <th scope="col">Email id</th>
           <th scope="col">Role</th>
-          <th scope="col">Created at</th>
-          <th scope="col">Updated at</th>
+          <th scope="col">Created Date</th>
+          <th scope="col">Updated Date</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -49,7 +64,7 @@
           <td>{{user.updatedAt
             |date:'short'}}</td>
           <td><button class="btn btn-success hello" data-bs-toggle="modal" data-bs-target="#exampleModal"
-              style="width: 70px;" (click)='onEdit(user)'>Edit</button></td>
+              style="width: 70px;" (click)='onEdit()'>Edit</button></td>
         </tr>
       </tbody>
     </table>
@@ -70,10 +85,10 @@
         <table class="table mt-2">
           <thead>
             <tr>
-              <th scope="col">First name</th>
-              <th scope="col">Last name</th>
-              <th scope="col">Email id</th>
-              <th scope="col">Created at</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email Id</th>
+              <th scope="col">Created Date</th>
             </tr>
           </thead>
           <tbody>
@@ -88,14 +103,15 @@
 
       </div>
 
-      <div class='tabelData' *ngIf='inputForm.get("search")?.value=="" || !searchResultType || searchResultData.length===0'>
+      <div class='tabelData'
+        *ngIf='inputForm.get("search")?.value=="" || !searchResultType || searchResultData.length===0'>
         <table class="table mt-2">
           <thead>
             <tr>
-              <th scope="col">First name</th>
-              <th scope="col">Last name</th>
-              <th scope="col">Email id</th>
-              <th scope="col">Created at</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email Id</th>
+              <th scope="col">Created Date</th>
             </tr>
           </thead>
           <tbody>
@@ -141,7 +157,8 @@
         </div>
         <div class="modal-body">
           <form [formGroup]='formValue'>
-            <img style="display: flex;align-items: center;justify-content: center;margin-left: 130px;" [src]="formValue.get('image')?.value" alt="" height="200px" width="200px">
+            <img style="display: flex;align-items: center;justify-content: center;margin-left: 130px;"
+              [src]="formValue.get('image')?.value" alt="" height="200px" width="200px">
             <div class="form-group mb-3 mt-3">
               <label for="" class="mb-2"> Update image</label>
               <input type="file" class="form-control" (change)='onFIleSelected($event)' aria-describedby="helpId"

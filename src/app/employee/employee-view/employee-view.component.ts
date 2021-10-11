@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { SearchModel } from './../../security/searchModel';
 import { DataService } from '../../security/dataModel.service';
 import { ToastrService } from 'ngx-toastr';
@@ -13,9 +14,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EmployeeViewComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private employeeService: ApiService, private activatedRoute: ActivatedRoute, private toaster: ToastrService, private dataService: DataService) { }
+  constructor(private fb: FormBuilder, private employeeService: ApiService, private activatedRoute: ActivatedRoute, private toaster: ToastrService, private dataService: DataService,private cookieService:CookieService) { }
   generalUserData: any;
   user: any = {};
+  navbarName=this.cookieService.get('first_name')
+  navbarImage=this.cookieService.get('image')
   auth = this.employeeService
   formValue = this.fb.group({
     image:[this.user.image,[Validators.required]],
@@ -33,7 +36,7 @@ export class EmployeeViewComponent implements OnInit {
     this.user = this.dataService.setData()
     this.url=this.user.image
   }
-  onEdit(data: any) {
+  onEdit() {
     this.formValue.get('image')?.setValue(this.user.image)
     this.formValue.get('first_name')?.setValue(this.user.first_name)
     this.formValue.get('last_name')?.setValue(this.user.last_name)

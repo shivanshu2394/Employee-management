@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'home',component:AdminHomeComponent,canActivate:[AuthGuard]}, 
   {path:'admin',component:AdminViewComponent,canActivate:[AuthGuard]},
   {path:'signup',component:AddEmployeeComponent,canActivate:[AuthGuard]},
-  {path:'adminDetail',component:AdminDetailComponent},
+  {path:'employeeDetail',component:AdminDetailComponent},
   {path:'navbar',component:NavbarComponent}
 //   {path:'**',component:ErrorComponent}
 ];
