@@ -66,7 +66,7 @@
           <button class="btn btn-dark" (click)='searchbox()'>Search</button>
         </span>
       </form>
-      <div class='tabelData' *ngIf='!showErrorMsg && inputForm.get("search")?.value!="" && searchResult.length>0'>
+      <div class='tabelData' *ngIf='!showErrorMsg && inputForm.get("search")?.value!="" && searchResultData.length>0'>
         <table class="table mt-2">
           <thead>
             <tr>
@@ -77,7 +77,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor='let data of searchResult'>
+            <tr *ngFor='let data of searchResultData'>
               <td>{{data.first_name}}</td>
               <td>{{data.last_name}}</td>
               <td>{{data.email}}</td>
@@ -88,7 +88,7 @@
 
       </div>
 
-      <div class='tabelData' *ngIf='inputForm.get("search")?.value=="" || !searchResultType || searchResult.length===0'>
+      <div class='tabelData' *ngIf='inputForm.get("search")?.value=="" || !searchResultType || searchResultData.length===0'>
         <table class="table mt-2">
           <thead>
             <tr>
@@ -99,7 +99,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor='let data of data | paginate: { itemsPerPage: 4, currentPage: p }'>
+            <tr *ngFor='let data of generalUserData | paginate: { itemsPerPage: 4, currentPage: p }'>
               <td>{{data.first_name}}</td>
               <td>{{data.last_name}}</td>
               <td>{{data.email}}</td>

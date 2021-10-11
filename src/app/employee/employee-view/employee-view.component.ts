@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EmployeeViewComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private employeeService: ApiService, private activatedRoute: ActivatedRoute, private toaster: ToastrService, private dataService: DataService) { }
-  data: any;
+  generalUserData: any;
   user: any = {};
   auth = this.employeeService
   formValue = this.fb.group({
@@ -28,11 +28,10 @@ export class EmployeeViewComponent implements OnInit {
   url=''
   ngOnInit(): void {
     this.employeeService.getGeneralData().subscribe((res: any) => {
-      this.data = res
+      this.generalUserData = res
     })
 
     this.user = this.dataService.setData()
-    // console.log(this.user);
     this.url=this.user.image
   }
   onEdit(data: any) {
@@ -56,7 +55,7 @@ export class EmployeeViewComponent implements OnInit {
       this.user.email = this.formValue.get('email')?.value
     })
     this.employeeService.getGeneralData().subscribe((res: any) => {
-      this.data = res
+      this.generalUserData = res
 
     })
     this.toaster.success('User updated successfully')
@@ -64,7 +63,7 @@ export class EmployeeViewComponent implements OnInit {
     ref?.click()
   }
   p: any;
-  searchResult: any = []
+  searchResultData: any = []
   searchResultType = false
   showErrorMsg = false
   errorInSearch: any
@@ -77,14 +76,14 @@ export class EmployeeViewComponent implements OnInit {
     console.log(data);
     
     this.employeeService.getSearch(data).subscribe((res: any) => {
-      this.searchResult = res;
+      this.searchResultData = res;
       this.searchResultType = true
-      if(this.searchResult.length===0){
+      if(this.searchResultData.length===0){
         this.toaster.error('no user found in database')
       }
 
       this.employeeService.getGeneralData().subscribe((res: any) => {
-        this.data = res
+        this.generalUserData = res
         this.showErrorMsg=false
       })
     }
@@ -102,12 +101,12 @@ export class EmployeeViewComponent implements OnInit {
       }
     )
     this.employeeService.getGeneralData().subscribe((res: any) => {
-      this.data = res
+      this.generalUserData = res
     })
   }
  inp(){
    this.searchResultType = false
-   this.searchResult=[]
+   this.searchResultData=[]
  }
  holidays=[
   {
