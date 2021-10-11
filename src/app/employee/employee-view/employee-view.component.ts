@@ -2,7 +2,6 @@ import { SearchModel } from './../../security/searchModel';
 import { DataService } from '../../security/dataModel.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, Validators } from '@angular/forms';
-import { User } from './User';
 import { ApiService } from '../../security/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -72,10 +71,9 @@ export class EmployeeViewComponent implements OnInit {
     search:['']
   })
   searchbox() {
-    var data=this.inputForm.get('search')?.value
-    console.log(data);
+    const searchData=this.inputForm.get('search')?.value
     
-    this.employeeService.getSearch(data).subscribe((res: any) => {
+    this.employeeService.getSearch(searchData).subscribe((res: any) => {
       this.searchResultData = res;
       this.searchResultType = true
       if(this.searchResultData.length===0){
@@ -94,8 +92,6 @@ export class EmployeeViewComponent implements OnInit {
         {
           this.showErrorMsg=true
       this.searchResultType = false
-
-          let a=document.getElementById('msg')
           this.toaster.error('nothing to show')
         }
       }
