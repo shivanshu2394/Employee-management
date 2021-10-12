@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
       if (res.data.role === 'general') { 
         this.toaster.success(`Welcome ${res.data.first_name} ${res.data.last_name}`)
         localStorage.setItem("token",res.token)
+        this.cookieService.set('_id',res.data._id)
         this.cookieService.set('first_name',res.data.first_name)
         this.cookieService.set('last_name',res.data.last_name)
         this.cookieService.set('email',res.data.email)
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
         this.toaster.success(`Welcome ${res.data.first_name} ${res.data.last_name}`)
         localStorage.setItem("token",res.token)
         this.userData.getData(res.data)
+        this.cookieService.set('_id',res.data._id)
         this.cookieService.set('first_name',res.data.first_name)
         this.cookieService.set('last_name',res.data.last_name)
         this.cookieService.set('email',res.data.email)

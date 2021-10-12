@@ -1,5 +1,4 @@
 import { CookieService } from 'ngx-cookie-service';
-import { SearchModel } from './../../security/searchModel';
 import { DataService } from '../../security/dataModel.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, Validators } from '@angular/forms';
