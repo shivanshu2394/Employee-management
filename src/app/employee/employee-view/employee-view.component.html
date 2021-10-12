@@ -17,8 +17,6 @@
                   {{navbarName}}
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                  <li><a class="dropdown-item ems" routerLink="/location">Location</a></li>
                   <li><a class="dropdown-item ems" routerLinkActive='active' [routerLinkActiveOptions]='{exact:true}'
                       *ngIf='auth.loggedIn()' (click)='auth.logoutUser()'>Logout</a></li>
                   <li><img class="dropdown-item ems" routerLink='/employee' src="{{navbarImage}}" width="90px"
