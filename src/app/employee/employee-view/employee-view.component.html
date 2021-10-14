@@ -8,7 +8,10 @@
     <span class="right">
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink='/leave'>Leave</a>
+          </li>
           <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item dropdown">
@@ -134,7 +137,7 @@
           <ul class="list-group list-group-flush" *ngFor='let holiday of holidays'>
             <li class="list-group-item">
               <div style="height: 50px;">
-                <h6>{{holiday.name}}</h6>
+                <h6 style="font-size: large;">{{holiday.name}}</h6>
                 <p>{{holiday.date}}</p>
               </div>
             </li>

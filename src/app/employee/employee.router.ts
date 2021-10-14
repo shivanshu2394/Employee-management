@@ -1,3 +1,4 @@
+import { LeaveComponent } from './leave/leave.component';
 // import { ErrorComponent } from './common/error/error.component';
 // import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { EmployeeViewComponent } from './employee-view/employee-view.component';
@@ -11,6 +12,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {path:'employee',component:EmployeeViewComponent,canActivate:[AuthGuard]},
+  {path:'leave',component:LeaveComponent,canActivate:[AuthGuard]}
  
 ];
 

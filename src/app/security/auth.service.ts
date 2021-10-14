@@ -46,4 +46,7 @@ export class ApiService {
   forgetPassword(email:any){
     return this.http.post<any>(this.url+'forgetpassword',{email})
   }
+  leaverequest(data:any,id:any){
+    return this.http.post(this.url+'leaverequest/'+id,data)
+  }
 }

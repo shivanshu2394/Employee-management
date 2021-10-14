@@ -1,3 +1,4 @@
+import { User } from '../User';
 import { FormBuilder } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../security/auth.service';
@@ -26,10 +27,10 @@ adminUserDetail=this.fb.group({
   last_name:[this.lastName],
   email:[this.email],
 })
+navbarName:any=''
   ngOnInit(): void {
   }
   update(){
-    // console.log(this.adminUserDetail.value);
     this.firstName=this.adminUserDetail.get('first_name')?.value
     this.lastName=this.adminUserDetail.get('last_name')?.value
     this.email=this.adminUserDetail.get('email')?.value

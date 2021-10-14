@@ -33,6 +33,10 @@ import { HolidayDetailsComponent } from './common/holiday-details/holiday-detail
 import { NavbarComponent } from './admin/navbar/navbar.component';
 import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
 import { CookieService } from 'ngx-cookie-service';
+import { LeaveComponent } from './employee/leave/leave.component';
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core';
+import { LeaveRequestsComponent } from './admin/leave-requests/leave-requests.component'
 
 @NgModule({
   declarations: [
@@ -51,7 +55,9 @@ import { CookieService } from 'ngx-cookie-service';
     AdminDetailComponent,
     HolidayDetailsComponent,
     NavbarComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    LeaveComponent,
+    LeaveRequestsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,8 +72,10 @@ import { CookieService } from 'ngx-cookie-service';
     NgxPaginationModule,
     CarouselModule,
     AgmCoreModule.forRoot({
-      apiKey:'AIzaSyDTMUsVQXGSzfx2D1EoGxmrlge5Fti-8Cg'
-    })
+      apiKey: 'AIzaSyDTMUsVQXGSzfx2D1EoGxmrlge5Fti-8Cg'
+    }),
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [AuthGuard,
     {
