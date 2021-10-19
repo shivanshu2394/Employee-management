@@ -18,8 +18,10 @@ input.ng-invalid.ng-touched{
     margin-right: 16px;
 }
 .car{
+    margin-top: 30px;
     width: 63%;
 }
 .bod{
+    height: 100%;
     width: 90vw;
 }

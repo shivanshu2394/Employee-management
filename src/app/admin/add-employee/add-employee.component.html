@@ -1,4 +1,4 @@
-<body class="text-center row justify-content-center">
+<body class="text-center row justify-content-center" style="width: 100%;">
     <div class="col-md-4 mt-5 ">
         <main class="form-signin">
             <form [formGroup]='user'>
@@ -38,7 +38,7 @@
                 <span style="display: flex;">
                     <label for='role' class='mb-2' style="font-size: 20px;color: black;">Select account type :&nbsp;
                     </label>
-                  
+
 
                     <select class="form-select" style="width: 200px;" formControlName='role'
                         aria-label="Default select example">
@@ -48,10 +48,10 @@
 
                 </span>
                 <div class="form-group">
-                  <label for=""></label>
-                  <input type="file" (change)='onFIleSelected($event)'
-                    class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-                  
+                    <label for=""></label>
+                    <input type="file" (change)='onFIleSelected($event)' class="form-control" name="" id=""
+                        aria-describedby="helpId" placeholder="">
+
                 </div>
                 <button class="w-100 btn btn-lg btn-primary mt-2" (click)="signup()" type="submit">Add employee</button>
 
@@ -60,3 +60,4 @@
         </main>
     </div>
 </body>
+<!-- <app-footer></app-footer> -->

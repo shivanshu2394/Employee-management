@@ -1,6 +1,6 @@
-<div class="main">
+<div class="main mt-3" >
 	<form [formGroup]='user'>
-		<div class="login-wrap mt-3 col-10 float-left">
+		<div class="login-wrap">
 			<div class="login-html">
 				<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
 					class="tab">Employee portal Sign
@@ -31,7 +31,7 @@
 						<!-- <div class="hr"></div> -->
 						<br>
 						<span style="display: flex; align-items: center; margin-left: 42px;">
-							<h6 style="color: darkgrey;">New user : &nbsp;</h6>
+							<span style="color:darkgrey;">New User : &nbsp;</span>
 							<button class="btn btn-primary" (click)='redirect()'>Create your account</button>
 						</span>
 					</div>

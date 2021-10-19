@@ -46,7 +46,22 @@ export class ApiService {
   forgetPassword(email:any){
     return this.http.post<any>(this.url+'forgetpassword',{email})
   }
-  leaverequest(data:any,id:any){
-    return this.http.post(this.url+'leaverequest/'+id,data)
+  leaverequest(data:any){
+    return this.http.post(this.url+'leaverequest',data)
+  }
+  allLeaveRequests(){
+    return this.http.get(this.url+'leaverequests')
+  }
+  leaveRequestUpdate(id:any){
+    return this.http.delete(this.url+'leaverequest/'+id);
+  }
+  leaveRequestDetail(email:any){
+    return this.http.post(this.url+'leaverequestdetail',{email})
+  }
+  leaveRequestStatus(id:any,data:any){
+    return this.http.put(this.url+'leaverequestupdate/'+id,data)
+  }
+  afterApprovalLeaveStatus(email:any){
+    return this.http.post(this.url+'leaveStatus',{email})
   }
 }

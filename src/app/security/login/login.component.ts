@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("token",res.token)
         this.cookieService.set('_id',res.data._id)
         this.cookieService.set('first_name',res.data.first_name)
+        this.cookieService.set('leaveRequester',res.data.first_name)
         this.cookieService.set('last_name',res.data.last_name)
         this.cookieService.set('email',res.data.email)
         this.cookieService.set('image',res.data.image)
