@@ -36,8 +36,18 @@ import { CookieService } from 'ngx-cookie-service';
 import { LeaveComponent } from './employee/leave/leave.component';
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
-import { LeaveRequestsComponent } from './admin/leave-requests/leave-requests.component'
+import { LeaveRequestsComponent } from './admin/leave-requests/leave-requests.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarComponent } from './employee/calendar/calendar.component'
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/daygrid'; // a plugin!
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +67,8 @@ import { LeaveRequestsComponent } from './admin/leave-requests/leave-requests.co
     NavbarComponent,
     AddEmployeeComponent,
     LeaveComponent,
-    LeaveRequestsComponent
+    LeaveRequestsComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +86,9 @@ import { LeaveRequestsComponent } from './admin/leave-requests/leave-requests.co
       apiKey: 'AIzaSyDTMUsVQXGSzfx2D1EoGxmrlge5Fti-8Cg'
     }),
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    FullCalendarModule // register FullCalendar with you app
   ],
   providers: [AuthGuard,
     {

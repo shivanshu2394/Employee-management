@@ -18,7 +18,7 @@ export class EmployeeViewComponent implements OnInit {
   user: any = {};
   navbarName=this.cookieService.get('first_name')
   navbarImage=this.cookieService.get('image')
-  auth = this.employeeService
+  auth=this.employeeService
   formValue = this.fb.group({
     image:[this.user.image,[Validators.required]],
     first_name: [this.user.first_name,[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
