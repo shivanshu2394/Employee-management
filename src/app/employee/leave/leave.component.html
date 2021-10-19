@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand ems" routerLink='/employee' routerLinkActive='active'>Employee management system</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="right">
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link active ems" aria-current="page" routerLink='/leave'>Leave</a>
+          </li>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle nav-link active ems" href="#" id="navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  {{navbarName}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item ems" routerLinkActive='active' [routerLinkActiveOptions]='{exact:true}'
+                      *ngIf='auth.loggedIn()' (click)='auth.logoutUser()'>Logout</a></li>
+                  <li><img class="dropdown-item ems" routerLink='/employee' src="{{navbarImage}}" width="90px"
+                      height="80px" alt=""></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <li class="nav-item">
+          </li>
+        </ul>
+        <span>
+        </span>
+      </div>
+    </span>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <h1 class="display-3"></h1>
+  <p class="lead"></p>
+  <hr class="my-2">
+  <p></p>
+  <div class="container">
+    <h2 style='margin-left: 235px;'>Welcome to the leave section on Employee management system</h2>
+  </div>
+  <form action="" [formGroup]='form'>
+    <div>
+      <mat-date-range-input [rangePicker]="picker" [comparisonStart]='comparisonStart' [comparisonEnd]='comparisonEnd'>
+        <input matStartDate placeholder="start date" style="border-bottom: 1px solid black;" formControlName="start">
+        <input matEndDate placeholder="end date" formControlName="end">
+      </mat-date-range-input>
+      <mat-datepicker-toggle style="    margin-left: 51px;" matSuffix [for]='picker'></mat-datepicker-toggle>
+      <div>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-primary" style="margin-top: 10px;margin-left: 31px;" (click)='submit()'>Submit</button>
+    </div>
+  </form>
+</div>
+
+<br>
+<h1 style="margin-left: 570px;">Your avail leaves</h1>
+<div class="col tableContent">
+  <span class="table1 col-6" style="border-right: 1px solid black;margin-left: 8px;">
+    <table class="table" style="height: 70px;">
+      <thead>
+        <tr>
+          <th scope="col">Index</th>
+          <th scope="col">Starting Date</th>
+          <th scope="col">Ending Date</th>
+          <th scope="col">Total days</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let leave of leaves | paginate: { itemsPerPage: 5, currentPage: p } let i=index'>
+          <td>{{i+1}}</td>
+          <td>{{leave.start|date}}</td>
+          <td>{{leave.end|date}}</td>
+          <td>{{leave.days_in_leave}}</td>
+          <th style="color: blue;">{{leave.status_of_leave}}</th>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </span>
+  <br>
+
+  <span class="col-6 tab">
+    <ul style="list-style: none;" *ngFor='let leave of leaveStatusAfterAdminApproval let i=index'>
+      <li>
+        <h4><b>{{i+1}}-</b>Your manager has <b>{{leave.status}}</b> your leave from <b>{{leave.start|date}}</b> to
+          <b>{{leave.end|date}}</b>.
+        </h4>
+      </li>
+      <hr>
+    </ul>
+  </span>
+</div>
